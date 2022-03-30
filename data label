@@ -1,0 +1,8 @@
+label = LabelEncoder()
+for column in categorical_col:
+    df1[column] = label.fit_transform(df1[column])
+    
+#split dataset
+X = df1.drop('price_range', axis=1)
+y = df1.price_range
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
