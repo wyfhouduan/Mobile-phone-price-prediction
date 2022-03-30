@@ -1,0 +1,35 @@
+from google.colab import drive
+drive.mount('/content/drive')
+df1 = pd.read_csv("/content/drive/MyDrive/201 project/train.csv")
+df1
+
+main_summary = summary[['price_range','clock_speed', 'fc', 'int_memory', 'mobile_wt', 'n_cores', 'pc', 'ram', 'sc_h', 'sc_w', 'talk_time']]
+main_summary
+
+df1.hist(edgecolor='black', linewidth=1.2, figsize=(20, 20))
+plt.show()
+
+plt.figure(figsize = (12,8))
+df1.groupby(['price_range']).mean()['ram'].plot(color = 'blue')
+plt.title('Mean of random access memory of each price degree')
+plt.ylabel('Mean of random access memory', fontsize=12)  
+plt.show()
+
+#relationship between screen height and price range
+plt.figure(figsize = (12,8))
+#plt.scatter(df1['price_range'], df1['sc_h'], color='r')
+#plt.scatter(df1['price_range'], df1['sc_w'], color='b')
+sns.barplot("price_range","sc_h", data=df1)
+plt.xlabel('price_range')
+plt.ylabel('length')
+plt.legend(['height'])
+plt.xlim([-1,4])
+plt.show()
+
+#the relationship between battery and price range
+plt.figure(figsize = (12,8))
+v=sns.violinplot(data=df1, x='price_range', y='battery_power')
+v.set_title('Density and distribution of battery power for different price range')
+
+#check degree of price_range
+df1['price_range'].unique()
