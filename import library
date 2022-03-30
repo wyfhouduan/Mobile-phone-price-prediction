@@ -1,0 +1,26 @@
+#Importing libraries
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+sns.set_style("whitegrid")
+plt.style.use("fivethirtyeight")
+
+#Libraries for data processing
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+
+#Libraries for decision tree and random forest model
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+#For performing hyperparameter tuning ( advanced code)
+from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import GridSearchCV
+
+#Evaluation metrics
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, f1_score
+from sklearn.metrics import classification_report
