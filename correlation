@@ -1,0 +1,5 @@
+#correlation of the dataset
+plt.figure(figsize = (12,8))
+corrplot = sns.heatmap(df1.corr(), annot=True, cmap='Blues')
+corrplot.set_xticklabels(corrplot.get_xticklabels(), rotation = 45, horizontalalignment = 'right') 
+plt.show()
